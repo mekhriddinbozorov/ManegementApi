@@ -1,2 +1,2 @@
 # ManegementApi
-Manegement Api
+ManegementApi
