@@ -14,7 +14,11 @@ namespace ManegementApi.Controllers
         }
         public ViewResult Index()
         {
-           return View();
+            HomeIndexViewModel homeIndexView = new HomeIndexViewModel()
+            {
+                Staffs = staffRepository.GetAll()
+            };
+           return View(homeIndexView);
         }
 
         public ViewResult Details(int? id)
@@ -26,6 +30,8 @@ namespace ManegementApi.Controllers
             };
             return View(homeDetailsView);
         }
+
+        
 
         //public string Staff()
         //{
