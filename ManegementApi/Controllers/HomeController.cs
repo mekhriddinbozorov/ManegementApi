@@ -31,7 +31,23 @@ namespace ManegementApi.Controllers
             return View(homeDetailsView);
         }
 
-        
+        [HttpGet]
+        public ViewResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Staff staff)
+        {
+            if (ModelState.IsValid)
+            {
+                var newStaff = staffRepository.Create(staff);
+                return RedirectToAction("details", new { id = newStaff.Id });
+            }
+
+            return View();
+        }
 
         //public string Staff()
         //{
